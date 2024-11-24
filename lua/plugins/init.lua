@@ -29,9 +29,6 @@ return {
 
 			-- snippet
 			{ "L3MON4D3/LuaSnip", version = "v2.3", build = "make install_jsregexp" },
-
-			-- others
-			"onsails/lspkind.nvim",
 		},
 		config = function()
 			require("plugins.ui.cmp")
