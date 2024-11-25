@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 
+vim.opt.guicursor = "n-v-i-c:block-Cursor"
+
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.swapfile = false
 vim.opt.mouse = "a"
@@ -25,4 +27,4 @@ vim.opt.signcolumn = "yes"
 
 vim.opt.fillchars = { eob = " " }
 
-vim.opt.background = "dark"
+vim.opt.background = "light"
