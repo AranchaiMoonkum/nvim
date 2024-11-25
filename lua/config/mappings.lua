@@ -21,6 +21,10 @@ require("which-key").add({
 
 	-- oil
 	{ "-", "<CMD>Oil<CR>", desc = "Open parent directory" },
+
+    -- testing
+    { "<space>tl", "<CMD>lua require('neotest').run.run()<CR>", desc = "Run the nearest test" },
+    { "<space>tc", "<CMD>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", desc = "Run the current file" },
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
