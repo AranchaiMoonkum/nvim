@@ -37,8 +37,17 @@ return {
 	{
 		"stevearc/oil.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = function() require("plugins.ui.oil") end,
+		config = function()
+			require("plugins.ui.oil")
+		end,
 	},
+    {
+        "NvChad/nvim-colorizer.lua",
+        event = "BufReadPre",
+        config = function()
+            require("plugins.ui.colorizer")
+        end,
+    },
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
@@ -75,16 +84,28 @@ return {
 		end,
 	},
 
+	-- testing
+	{
+		"nvim-neotest/neotest-plenary",
+	},
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			-- requirement
+			"nvim-neotest/nvim-nio",
+			"nvim-lua/plenary.nvim",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-treesitter/nvim-treesitter",
+
+			-- test runner
+			"nvim-neotest/neotest-jest",
+		},
+		config = function()
+			require("plugins.test.testing")
+		end,
+	},
+
 	-- colorscheme
-	{
-		"kvrohit/substrata.nvim",
-	},
-	{
-		"rose-pine/neovim",
-	},
-	{
-		"FrenzyExists/aquarium-vim",
-	},
 	{
 		"folke/tokyonight.nvim",
 	},
@@ -92,9 +113,12 @@ return {
 		"deparr/tairiki.nvim",
 	},
 	{
+		"ferdinandrau/lavish.nvim",
+	},
+	{
 		"vague2k/vague.nvim",
 	},
-
-	-- game
-	"ThePrimeagen/vim-be-good",
+	{
+		"aktersnurra/no-clown-fiesta.nvim",
+	},
 }
