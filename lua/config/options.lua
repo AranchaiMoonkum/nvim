@@ -27,4 +27,4 @@ vim.opt.signcolumn = "yes"
 
 vim.opt.fillchars = { eob = " " }
 
-vim.opt.background = "light"
+vim.opt.background = "dark"

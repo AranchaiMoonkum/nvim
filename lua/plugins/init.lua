@@ -41,13 +41,13 @@ return {
 			require("plugins.ui.oil")
 		end,
 	},
-    {
-        "NvChad/nvim-colorizer.lua",
-        event = "BufReadPre",
-        config = function()
-            require("plugins.ui.colorizer")
-        end,
-    },
+	{
+		"NvChad/nvim-colorizer.lua",
+		event = "BufReadPre",
+		config = function()
+			require("plugins.ui.colorizer")
+		end,
+	},
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
@@ -111,14 +111,42 @@ return {
 	},
 	{
 		"deparr/tairiki.nvim",
+		config = function()
+			require("tairiki").setup({
+				transparent = true,
+			})
+		end,
 	},
 	{
 		"ferdinandrau/lavish.nvim",
+		config = function()
+			require("lavish").setup({
+				style = { transparent = true },
+			})
+		end,
 	},
 	{
 		"vague2k/vague.nvim",
+		config = function()
+			require("vague").setup({
+				transparent = true,
+			})
+		end,
 	},
 	{
 		"aktersnurra/no-clown-fiesta.nvim",
+		config = function()
+			require("no-clown-fiesta").setup({
+				transparent = true,
+			})
+		end,
+	},
+	{
+		"ramojus/mellifluous.nvim",
+		config = function()
+			require("mellifluous").setup({
+                transparent_background = { enabled = true }
+			})
+		end,
 	},
 }
