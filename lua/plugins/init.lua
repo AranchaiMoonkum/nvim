@@ -1,10 +1,6 @@
 return {
 	-- ux/ui
 	{
-		"numToStr/Comment.nvim",
-		config = true,
-	},
-	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.8",
 		dependencies = {
@@ -22,17 +18,19 @@ return {
 	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
-			-- sources
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
-
-			-- snippet
-			{ "L3MON4D3/LuaSnip", version = "v2.3", build = "make install_jsregexp" },
 		},
 		config = function()
 			require("plugins.ui.cmp")
 		end,
+	},
+	{
+		"L3MON4D3/LuaSnip",
+		version = "v2.3",
+		build = "make install_jsregexp",
+		dependencies = { "rafamadriz/friendly-snippets" },
 	},
 	{
 		"stevearc/oil.nvim",
@@ -51,7 +49,7 @@ return {
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
-			require("gitsigns")
+			require("gitsigns").setup()
 		end,
 	},
 	{
@@ -71,6 +69,13 @@ return {
 		end,
 	},
 	{
+		"ray-x/lsp_signature.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("lsp_signature").setup()
+		end,
+	},
+	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		config = function()
@@ -84,69 +89,25 @@ return {
 		end,
 	},
 
-	-- testing
-	{
-		"nvim-neotest/neotest-plenary",
-	},
-	{
-		"nvim-neotest/neotest",
-		dependencies = {
-			-- requirement
-			"nvim-neotest/nvim-nio",
-			"nvim-lua/plenary.nvim",
-			"antoinemadec/FixCursorHold.nvim",
-			"nvim-treesitter/nvim-treesitter",
-
-			-- test runner
-			"nvim-neotest/neotest-jest",
-		},
-		config = function()
-			require("plugins.test.testing")
-		end,
-	},
-
 	-- colorscheme
-	{
-		"folke/tokyonight.nvim",
-	},
-	{
-		"deparr/tairiki.nvim",
-		config = function()
-			require("tairiki").setup({
-				transparent = true,
-			})
-		end,
-	},
-	{
-		"ferdinandrau/lavish.nvim",
-		config = function()
-			require("lavish").setup({
-				style = { transparent = true },
-			})
-		end,
-	},
-	{
-		"vague2k/vague.nvim",
-		config = function()
-			require("vague").setup({
-				transparent = true,
-			})
-		end,
-	},
-	{
-		"aktersnurra/no-clown-fiesta.nvim",
-		config = function()
-			require("no-clown-fiesta").setup({
-				transparent = true,
-			})
-		end,
-	},
 	{
 		"ramojus/mellifluous.nvim",
 		config = function()
 			require("mellifluous").setup({
-                transparent_background = { enabled = true }
+				transparent_background = { enabled = true },
 			})
+		end,
+	},
+
+	-- ai
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({
+                suggestion = { auto_trigger = true },
+            })
 		end,
 	},
 }
