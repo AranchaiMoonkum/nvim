@@ -1,31 +1,24 @@
-require("which-key").add({
-	-- telescope
-	{ "<leader>ff", "<CMD>Telescope find_files<CR>", desc = "Telescope find files" },
-	{ "<leader>fg", "<CMD>Telescope live_grep<CR>", desc = "Telescope live grep" },
-	{ "<leader>fb", "<CMD>Telescope buffers<CR>", desc = "Telescope buffers" },
-	{ "<leader>fh", "<CMD>Telescope help_tags<CR>", desc = "Telescope help tags" },
-	{ "<leader>th", "<CMD>Telescope themes<CR>", desc = "Theme switcher" },
+-- global mappings
+vim.keymap.set("n", "yc", "yy<CMD>normal gcc<CR>p")
 
-	-- formatting
-	{
-		"<leader>mp",
-		function()
-			require("conform").format({
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 500,
-			})
-		end,
-		desc = "Format current buffer",
-	},
+-- telescope
+vim.keymap.set("n", "<leader>ff", "<CMD>Telescope find_files<CR>", { silent = true })
+vim.keymap.set("n", "<leader>fg", "<CMD>Telescope live_grep<CR>", { silent = true})
+vim.keymap.set("n", "<leader>fb", "<CMD>Telescope buffers<CR>", { silent = true })
+vim.keymap.set("n", "<leader>fh", "<CMD>Telescope help_tags<CR>", { silent = true })
+vim.keymap.set("n", "<leader>th", "<CMD>Telescope themes<CR>", { silent = true })
 
-	-- oil
-	{ "-", "<CMD>Oil<CR>", desc = "Open parent directory" },
+-- formatting
+vim.keymap.set("n", "<leader>mp", function()
+    require("conform").format({
+        lsp_fallback = true,
+        async = false,
+        timeout_ms = 500,
+    })
+end)
 
-    -- testing
-    { "<space>tl", "<CMD>lua require('neotest').run.run()<CR>", desc = "Run the nearest test" },
-    { "<space>tc", "<CMD>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", desc = "Run the current file" },
-})
+-- oil
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { silent = true })
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	desc = "LSP actions",

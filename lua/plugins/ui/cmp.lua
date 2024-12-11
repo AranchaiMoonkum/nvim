@@ -27,6 +27,12 @@ local mapping = {
 
 cmp.setup({
 	completion = { completeopt = "menu,menuone,noinsert" },
+	window = {
+		documentation = {
+			border = "rounded",
+			winhighlight = "NormalFloat:NormalFloat,FloatBorder:NormalFloat",
+		},
+	},
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
