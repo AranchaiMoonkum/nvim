@@ -36,6 +36,11 @@ return {
         config = function() require "plugins.ui.statusline" end,
     },
     {
+        "echasnovski/mini.tabline",
+        version = false,
+        config = function() require "plugins.ui.tabline" end,
+    },
+    {
         "lewis6991/gitsigns.nvim",
         config = function() require "gitsigns".setup {} end,
     },
