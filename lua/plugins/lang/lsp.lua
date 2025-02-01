@@ -14,9 +14,12 @@ lspconfig.cssls.setup { default }
 lspconfig.css_variables.setup { default }
 lspconfig.cssmodules_ls.setup { default }
 lspconfig.tailwindcss.setup { default }
+lspconfig.ts_ls.setup { default }
 lspconfig.pyright.setup { default }
 lspconfig.jdtls.setup { default }
 lspconfig.rust_analyzer.setup { default }
+lspconfig.prismals.setup { default }
+lspconfig.clangd.setup { default }
 
 lspconfig.html.setup {
     lsp_flags = lsp_flags,
@@ -31,12 +34,6 @@ lspconfig.jsonls.setup {
 }
 
 lspconfig.eslint.setup {
-    lsp_flags = lsp_flags,
-    capabilities = capabilities,
-    root_dir = lspconfig_util.root_pattern({ "*.js", "*.ts" }),
-}
-
-lspconfig.ts_ls.setup {
     lsp_flags = lsp_flags,
     capabilities = capabilities,
     root_dir = lspconfig_util.root_pattern({ "*.js", "*.ts" }),

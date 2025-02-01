@@ -36,17 +36,16 @@ return {
         config = function() require "plugins.ui.statusline" end,
     },
     {
-        "echasnovski/mini.tabline",
-        version = false,
-        config = function() require "plugins.ui.tabline" end,
-    },
-    {
         "lewis6991/gitsigns.nvim",
         config = function() require "gitsigns".setup {} end,
     },
     {
         "folke/snacks.nvim",
         config = function() require "plugins.ui.indent" end,
+    },
+    {
+        "sindrets/diffview.nvim",
+        event = "BufRead",
     },
 
     -- language
@@ -96,9 +95,15 @@ return {
     },
     {
         "sainnhe/gruvbox-material",
-        lazy = false,
+        lazy = true,
         priority = 1000,
         config = function() require "plugins.themes.gruvbox-material" end,
+    },
+    {
+        "ferdinandrau/carbide.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function() require "plugins.themes.carbide" end,
     },
 
     -- ai
