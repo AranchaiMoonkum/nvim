@@ -1,5 +1,3 @@
-vim.opt.guicursor = ""
-
 vim.g.mapleader = " "
 vim.g.localmapleader = "\\"
 
@@ -13,11 +11,17 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
-vim.opt.laststatus = 0
+vim.opt.laststatus = 3
+vim.opt.statusline = " %f %m %= %l:%c "
 
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -28,5 +32,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.termguicolors = true
 
 vim.o.showmode = true
+
+vim.opt.updatetime = 50
 
 vim.opt.fillchars = { eob = " " }

@@ -1,14 +1,14 @@
-local KM = vim.keymap.set -- keymap
-local DS = { noremap = true, silent = true } -- default settings
+local KM = vim.keymap.set                     -- keymap
+local DS = { noremap = true, silent = true }  -- default settings
 local AR = { noremap = false, silent = true } -- allow remapping
 
 -- NATIVE --
-KM("i", "jk", "<esc>", DS) -- exit insert mode
+KM("i", "jk", "<esc>", DS)           -- exit insert mode
 KM("v", "J", ":m '>+1<cr>gv=gv", DS) -- move code up
 KM("v", "K", ":m '<-2<cr>gv=gv", DS) -- move code down
-KM("x", "<leader>p", "\"_dP", DS) -- paste without delete previous buffer
-KM("n", "<C-c>", "ciw", DS) -- change whole word
-KM("n", "yc", "yygccp", AR) -- mini version control
+KM("x", "<leader>p", "\"_dP", DS)    -- paste without delete previous buffer
+KM("n", "<C-c>", "ciw", DS)          -- change whole word
+KM("n", "yc", "yygccp", AR)          -- mini version control
 
 -- TELESCOPE --
 KM("n", "<leader>ff", function() require("telescope.builtin").find_files({}) end) -- open find files

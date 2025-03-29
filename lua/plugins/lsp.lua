@@ -3,7 +3,6 @@ return {
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "VidocqH/lsp-lens.nvim",
     },
     config = function()
         local B = require("blink.cmp")
@@ -53,7 +52,5 @@ return {
                 }
             end,
         }
-
-        require("lsp-lens").setup()
     end,
 }
